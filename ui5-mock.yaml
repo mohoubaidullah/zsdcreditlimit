@@ -29,3 +29,13 @@ server:
       configuration:
         component: contract.zsdcreditlimit
         ui5Theme: sap_fiori_3
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
+      configuration:
+        mountPath: /
+        services:
+          - urlPath: /sap/opu/odata/sap/ZCUS_CREDIT_LIMIT_SRV
+            metadataPath: ./webapp/localService/metadata.xml
+            mockdataPath: ./webapp/localService/ZCUS_CREDIT_LIMIT_SRV/data
+            generateMockData: true
+        annotations: []
